@@ -1,0 +1,3822 @@
+/* =========================================================
+   KAYVIC X — PREMIUM STYLE SYSTEM
+   ========================================================= */
+
+:root {
+    --black: #050505;
+    --black-2: #090909;
+    --black-3: #101010;
+
+    --white: #ffffff;
+    --soft-white: #e9e9e9;
+    --muted: #999999;
+    --muted-2: #6f6f6f;
+
+    --gold: #d7b36a;
+    --gold-light: #edcf91;
+    --gold-dark: #a98242;
+
+    --border: rgba(255,255,255,0.09);
+    --border-gold: rgba(215,179,106,0.35);
+
+    --container: 1240px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   SUBTLE BACKGROUND
+   ========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    opacity: 0.45;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 82px;
+
+    padding:
+        0 5%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        rgba(5,5,5,0.82);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid var(--border);
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo,
+.footer-logo {
+    font-size: 1.25rem;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    white-space: nowrap;
+}
+
+.logo span,
+.footer-logo span {
+    color: var(--gold);
+}
+
+
+/* NAV LINKS */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 36px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #b8b8b8;
+
+    font-size: 0.82rem;
+
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--gold);
+
+    transition:
+        width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.menu-button {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid var(--border);
+
+    background: transparent;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 18px;
+    height: 1px;
+
+    margin: 4px auto;
+
+    background: var(--white);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.mobile-menu {
+    position: fixed;
+
+    top: 82px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 25px 5% 30px;
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    background:
+        rgba(5,5,5,0.97);
+
+    border-bottom:
+        1px solid var(--border);
+
+    z-index: 999;
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: var(--soft-white);
+
+    font-size: 1rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding:
+        150px 5%
+        100px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+
+    width: 62%;
+
+    z-index: 3;
+}
+
+
+/* LABEL */
+
+.hero-label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 30px;
+
+    color: var(--gold);
+
+    font-size: 0.68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+}
+
+.label-divider {
+    color: #555;
+}
+
+
+/* HERO HEADING */
+
+.hero h1 {
+    max-width: 850px;
+
+    margin-bottom: 32px;
+
+    color: var(--white);
+
+    font-size:
+        clamp(3.6rem, 7.5vw, 7.8rem);
+
+    font-weight: 900;
+
+    line-height: 0.91;
+
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+
+/* HERO TEXT */
+
+.hero-description {
+    max-width: 610px;
+
+    margin-bottom: 38px;
+
+    color: #a2a2a2;
+
+    font-size: 1rem;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    flex-wrap: wrap;
+}
+
+.button {
+    min-height: 54px;
+
+    padding:
+        0 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    border-radius: 999px;
+
+    font-size: 0.84rem;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.primary-button {
+    color: #080808;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    border:
+        1px solid var(--gold);
+}
+
+.primary-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(215,179,106,0.18);
+}
+
+.secondary-button {
+    color: var(--white);
+
+    background:
+        rgba(255,255,255,0.025);
+
+    border:
+        1px solid var(--border);
+}
+
+.secondary-button:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        var(--border-gold);
+
+    background:
+        rgba(215,179,106,0.06);
+}
+
+
+/* =========================================================
+   HERO META
+   ========================================================= */
+
+.hero-meta {
+    margin-top: 48px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    color: #666;
+
+    font-size: 0.63rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO VISUAL
+   ========================================================= */
+
+.hero-visual {
+    position: absolute;
+
+    right: 4%;
+
+    top: 50%;
+
+    width: 34%;
+
+    max-width: 430px;
+
+    transform:
+        translateY(-50%);
+
+    z-index: 2;
+}
+
+.visual-card {
+    position: relative;
+
+    min-height: 470px;
+
+    padding: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #090909
+        );
+
+    border:
+        1px solid
+        rgba(215,179,106,0.25);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.55);
+
+    transform:
+        rotate(2deg);
+
+    transition:
+        transform 0.5s ease,
+        border-color 0.5s ease;
+}
+
+.visual-card:hover {
+    transform:
+        rotate(0deg)
+        translateY(-8px);
+
+    border-color:
+        rgba(215,179,106,0.5);
+}
+
+.visual-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -70px;
+    top: 50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(215,179,106,0.08);
+
+    filter: blur(55px);
+
+    pointer-events: none;
+}
+
+.visual-top,
+.visual-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #777;
+
+    font-size: 0.58rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.visual-center {
+    position: relative;
+
+    z-index: 2;
+}
+
+.visual-center small {
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: var(--gold);
+
+    font-size: 0.6rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.visual-center h2 {
+    color: var(--white);
+
+    font-size: 3.5rem;
+
+    line-height: 0.95;
+
+    letter-spacing: -2px;
+
+    font-weight: 900;
+}
+
+.visual-center h2 span {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   HERO DECORATIVE LIGHT
+   ========================================================= */
+
+.hero-light {
+    position: absolute;
+
+    right: 20%;
+
+    top: 15%;
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(215,179,106,0.07);
+
+    filter: blur(90px);
+
+    pointer-events: none;
+}
+
+.hero-grid {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 49.9%,
+            rgba(255,255,255,0.025) 50%,
+            transparent 50.1%
+        );
+
+    background-size: 25% 100%;
+
+    pointer-events: none;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   SECTION BASE
+   ========================================================= */
+
+.work,
+.services,
+.why-us,
+.about {
+    position: relative;
+
+    max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding:
+        140px 5%;
+}
+
+.section-intro {
+    max-width: 850px;
+
+    margin-bottom: 70px;
+}
+
+.section-label {
+    margin-bottom: 20px;
+
+    color: var(--gold);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.section-intro h2,
+.about h2 {
+    margin-bottom: 22px;
+
+    color: var(--white);
+
+    font-size:
+        clamp(2.8rem, 5vw, 5.5rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    font-weight: 900;
+}
+
+.section-intro h2 span,
+.about h2 span {
+    color: var(--gold);
+}
+
+.section-intro > p:last-child {
+    max-width: 570px;
+
+    color: var(--muted);
+
+    font-size: 0.95rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   WORK / PROJECTS
+   ========================================================= */
+
+.projects {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.project {
+    overflow: hidden;
+}
+
+.project-screen {
+    position: relative;
+
+    min-height: 480px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 35px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 70% 25%,
+            rgba(215,179,106,0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #171717,
+            #080808
+        );
+
+    border:
+        1px solid var(--border);
+
+    transition:
+        transform 0.45s ease,
+        border-color 0.45s ease;
+}
+
+.project:hover .project-screen {
+    transform: translateY(-7px);
+
+    border-color:
+        var(--border-gold);
+}
+
+.project-screen::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+    pointer-events: none;
+}
+
+.project-screen-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.project-screen-content small {
+    color: var(--gold);
+
+    font-size: 0.58rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.project-screen-content h3 {
+    margin:
+        15px 0;
+
+    color: var(--white);
+
+    font-size:
+        clamp(2rem, 4vw, 4rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -2px;
+
+    font-weight: 900;
+}
+
+.project-screen-content h3 span {
+    display: block;
+
+    color: var(--gold);
+}
+
+.project-screen-content p {
+    color: #888;
+
+    font-size: 0.8rem;
+}
+
+.project-details {
+    padding:
+        22px 3px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.project-details h3 {
+    margin-bottom: 5px;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+}
+
+.project-details p {
+    color: #666;
+
+    font-size: 0.7rem;
+}
+
+.project-details > span {
+    color: var(--gold);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+}
+
+.project-empty {
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #070707
+        );
+}
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.service-list {
+    border-top:
+        1px solid var(--border);
+}
+
+.service {
+    display: grid;
+
+    grid-template-columns:
+        70px 1fr 50px;
+
+    gap: 30px;
+
+    align-items: center;
+
+    padding:
+        34px 0;
+
+    border-bottom:
+        1px solid var(--border);
+
+    transition:
+        padding 0.35s ease;
+}
+
+.service:hover {
+    padding-left: 15px;
+
+    padding-right: 15px;
+
+    background:
+        rgba(215,179,106,0.025);
+}
+
+.service > span {
+    color: var(--gold);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+}
+
+.service h3 {
+    margin-bottom: 7px;
+
+    font-size: 1.35rem;
+
+    font-weight: 800;
+}
+
+.service p {
+    max-width: 620px;
+
+    color: #777;
+
+    font-size: 0.82rem;
+
+    line-height: 1.7;
+}
+
+.service b {
+    color: var(--gold);
+
+    font-size: 1.2rem;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   DIFFERENCE
+   ========================================================= */
+
+.difference-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1px;
+
+    background: var(--border);
+
+    border:
+        1px solid var(--border);
+}
+
+.difference {
+    min-height: 290px;
+
+    padding: 35px;
+
+    background: var(--black);
+
+    transition:
+        background 0.35s ease;
+}
+
+.difference:hover {
+    background: #0c0c0c;
+}
+
+.difference > span {
+    color: var(--gold);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+}
+
+.difference h3 {
+    margin:
+        65px 0 15px;
+
+    font-size: 1.15rem;
+
+    font-weight: 800;
+}
+
+.difference p {
+    color: #777;
+
+    font-size: 0.8rem;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-layout {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+.about-copy {
+    padding-top: 55px;
+}
+
+.about-copy p {
+    max-width: 560px;
+
+    margin-bottom: 25px;
+
+    color: #8a8a8a;
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact {
+    position: relative;
+
+    max-width: var(--container);
+
+    min-height: 80vh;
+
+    margin: 0 auto;
+
+    padding:
+        150px 5%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.contact-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -200px;
+    bottom: -200px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(215,179,106,0.08);
+
+    filter: blur(100px);
+
+    pointer-events: none;
+}
+
+.contact h2 {
+    position: relative;
+
+    max-width: 900px;
+
+    margin-bottom: 25px;
+
+    font-size:
+        clamp(3.5rem, 7vw, 7.5rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+}
+
+.contact h2 span {
+    display: block;
+
+    color: var(--gold);
+}
+
+.contact-text {
+    position: relative;
+
+    max-width: 560px;
+
+    margin-bottom: 40px;
+
+    color: #888;
+
+    font-size: 0.95rem;
+
+    line-height: 1.8;
+}
+
+.contact-button {
+    position: relative;
+
+    width: fit-content;
+
+    min-height: 58px;
+
+    padding:
+        0 28px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border:
+        1px solid var(--gold);
+
+    background:
+        var(--gold);
+
+    color: #050505;
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+
+    border-radius: 999px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.contact-button:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(215,179,106,0.2);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding:
+        60px 5%
+        30px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+.footer > div:first-child {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.footer-logo {
+    display: inline-block;
+
+    margin-bottom: 10px;
+}
+
+.footer p {
+    color: #666;
+
+    font-size: 0.75rem;
+}
+
+.footer-links {
+    display: flex;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #777;
+
+    font-size: 0.72rem;
+
+    transition:
+        color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    margin-top: 60px;
+
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top:
+        1px solid var(--border);
+
+    color: #555;
+
+    font-size: 0.65rem;
+}
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        padding-top: 130px;
+    }
+
+    .hero-content {
+        width: 58%;
+    }
+
+    .hero-visual {
+        width: 38%;
+    }
+
+    .visual-card {
+        min-height: 400px;
+    }
+
+    .visual-center h2 {
+        font-size: 2.8rem;
+    }
+
+    .projects {
+        gap: 18px;
+    }
+
+    .about-layout {
+        gap: 50px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 72px;
+
+        padding:
+            0 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .mobile-menu {
+        top: 72px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: auto;
+
+        padding:
+            135px 5%
+            80px;
+
+        display: block;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size:
+            clamp(3.25rem, 15vw, 5rem);
+
+        letter-spacing: -3px;
+
+        line-height: 0.91;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+
+        line-height: 1.8;
+    }
+
+    .hero-actions {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .hero-meta {
+        gap: 15px;
+
+        margin-top: 35px;
+
+        line-height: 1.8;
+    }
+
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+        position: relative;
+
+        right: auto;
+        top: auto;
+
+        width: 88%;
+
+        max-width: none;
+
+        margin:
+            75px auto
+            0;
+
+        transform: none;
+    }
+
+    .visual-card {
+        min-height: 360px;
+
+        transform:
+            rotate(1deg);
+    }
+
+    .visual-card:hover {
+        transform:
+            rotate(0deg);
+    }
+
+    .visual-center h2 {
+        font-size: 2.7rem;
+    }
+
+
+    /* SECTIONS */
+
+    .work,
+    .services,
+    .why-us,
+    .about {
+        padding:
+            100px 5%;
+    }
+
+    .section-intro {
+        margin-bottom: 50px;
+    }
+
+    .section-intro h2,
+    .about h2 {
+        font-size:
+            clamp(2.8rem, 12vw, 4.5rem);
+
+        letter-spacing: -3px;
+    }
+
+
+    /* PROJECTS */
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .project-screen {
+        min-height: 390px;
+    }
+
+
+    /* SERVICES */
+
+    .service {
+        grid-template-columns:
+            40px 1fr 30px;
+
+        gap: 15px;
+
+        padding: 28px 0;
+    }
+
+    .service h3 {
+        font-size: 1.1rem;
+    }
+
+    .service p {
+        font-size: 0.76rem;
+    }
+
+
+    /* DIFFERENCE */
+
+    .difference-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .difference {
+        min-height: 230px;
+    }
+
+    .difference h3 {
+        margin-top: 45px;
+    }
+
+
+    /* ABOUT */
+
+    .about-layout {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .about-copy {
+        padding-top: 0;
+    }
+
+
+    /* CONTACT */
+
+    .contact {
+        min-height: 70vh;
+
+        padding:
+            110px 5%;
+    }
+
+    .contact h2 {
+        font-size:
+            clamp(3.2rem, 15vw, 5.5rem);
+
+        letter-spacing: -4px;
+    }
+
+    .contact-text {
+        font-size: 0.88rem;
+    }
+
+
+    /* FOOTER */
+
+    .footer > div:first-child {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        margin-top: 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .logo {
+        font-size: 1.05rem;
+
+        letter-spacing: 3px;
+    }
+
+    .hero {
+        padding-top: 125px;
+    }
+
+    .hero-label {
+        font-size: 0.58rem;
+
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: 3.15rem;
+
+        letter-spacing: -2.5px;
+    }
+
+    .visual-card {
+        min-height: 320px;
+
+        padding: 22px;
+    }
+
+    .visual-center h2 {
+        font-size: 2.3rem;
+    }
+
+    .project-screen {
+        min-height: 330px;
+
+        padding: 25px;
+    }
+
+    .project-screen-content h3 {
+        font-size: 2.2rem;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
+/* =========================================================
+   KAYVIC X — INTERACTION STYLES
+   ========================================================= */
+
+/* Navbar when scrolling */
+
+.navbar.scrolled {
+    background: rgba(5, 5, 5, 0.95);
+
+    border-bottom-color:
+        rgba(215, 179, 106, 0.18);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Scroll reveal */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal.visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* Mobile menu button animation */
+
+.menu-button span {
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+.menu-button.active span:nth-child(1) {
+    transform:
+        translateY(5px)
+        rotate(45deg);
+}
+
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.menu-button.active span:nth-child(3) {
+    transform:
+        translateY(-5px)
+        rotate(-45deg);
+}
+
+
+/* =========================================================
+   PREMIUM HOVER DETAILS
+   ========================================================= */
+
+.project-screen::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 25%,
+            rgba(215,179,106,0.08) 50%,
+            transparent 75%
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:
+        transform 0.8s ease;
+
+    pointer-events: none;
+}
+
+
+.project:hover
+.project-screen::after {
+    transform:
+        translateX(100%);
+}
+
+
+/* Service number hover */
+
+.service > span {
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.service:hover > span {
+    color: var(--gold-light);
+
+    transform:
+        translateX(5px);
+}
+
+
+/* Contact button arrow */
+
+.contact-button span,
+.primary-button span {
+    transition:
+        transform 0.3s ease;
+}
+
+
+.contact-button:hover span,
+.primary-button:hover span {
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   HERO VISUAL MOTION
+   ========================================================= */
+
+@keyframes gentleFloat {
+
+    0% {
+        transform:
+            rotate(2deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(1deg)
+            translateY(-8px);
+    }
+
+    100% {
+        transform:
+            rotate(2deg)
+            translateY(0);
+    }
+}
+
+
+.visual-card {
+    animation:
+        gentleFloat 7s
+        ease-in-out
+        infinite;
+}
+
+
+.visual-card:hover {
+    animation-play-state:
+        paused;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .reveal {
+        transform:
+            translateY(25px);
+    }
+
+    .visual-card {
+        animation:
+            gentleFloatMobile 7s
+            ease-in-out
+            infinite;
+    }
+
+}
+
+
+@keyframes gentleFloatMobile {
+
+    0% {
+        transform:
+            rotate(1deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(0deg)
+            translateY(-5px);
+    }
+
+    100% {
+        transform:
+            rotate(1deg)
+            translateY(0);
+    }
+}
+/* =========================================================
+   NEXT PROJECT
+   ========================================================= */
+
+.next-project .project-screen {
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #080808
+        );
+}
+
+.next-project .project-screen-content {
+    max-width: 520px;
+}
+
+.project-link {
+    position: absolute;
+
+    right: 30px;
+    top: 30px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 17px;
+
+    border: 1px solid
+        rgba(215,179,106,0.35);
+
+    border-radius: 999px;
+
+    color: var(--gold);
+
+    background:
+        rgba(215,179,106,0.04);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.project-link:hover {
+    background:
+        rgba(215,179,106,0.10);
+
+    border-color:
+        rgba(215,179,106,0.7);
+
+    transform:
+        translateY(-3px);
+}
+
+.project-link span {
+    font-size: 1rem;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.project-link:hover span {
+    transform:
+        translate(3px, -3px);
+}
+
+
+@media (max-width: 768px) {
+
+    .project-link {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        margin-top: 35px;
+    }
+
+}
+/* =========================================================
+   PRICING
+========================================================= */
+
+.pricing {
+    max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding:
+        140px 5%;
+}
+
+
+.pricing-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.price-card {
+    position: relative;
+
+    padding: 35px 30px;
+
+    min-height: 570px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #080808
+        );
+
+    border:
+        1px solid var(--border);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.price-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(215,179,106,0.35);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,0.35);
+}
+
+
+.price-card.featured {
+    border-color:
+        rgba(215,179,106,0.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            #15130f,
+            #090909
+        );
+}
+
+
+.popular {
+    position: absolute;
+
+    top: 0;
+    right: 25px;
+
+    padding:
+        8px 12px;
+
+    background:
+        var(--gold);
+
+    color:
+        #050505;
+
+    font-size:
+        0.55rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.5px;
+}
+
+
+.price-label {
+    margin-bottom: 22px;
+
+    color: var(--gold);
+
+    font-size:
+        0.62rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        3px;
+}
+
+
+.price-card h3 {
+    margin-bottom: 18px;
+
+    font-size:
+        1.7rem;
+
+    line-height:
+        1;
+
+    font-weight:
+        900;
+}
+
+
+.price-description {
+    min-height: 75px;
+
+    color:
+        #858585;
+
+    font-size:
+        0.82rem;
+
+    line-height:
+        1.75;
+}
+
+
+.price-line {
+    width: 100%;
+
+    height: 1px;
+
+    margin:
+        28px 0;
+
+    background:
+        var(--border);
+}
+
+
+.price-card ul {
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-bottom: 35px;
+}
+
+
+.price-card li {
+    color:
+        #b5b5b5;
+
+    font-size:
+        0.76rem;
+}
+
+
+.price-button {
+    margin-top: auto;
+
+    min-height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        0 19px;
+
+    border:
+        1px solid
+        rgba(215,179,106,0.35);
+
+    color:
+        var(--white);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        700;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.price-button:hover {
+    background:
+        var(--gold);
+
+    color:
+        #050505;
+
+    border-color:
+        var(--gold);
+}
+
+
+.price-button span {
+    font-size:
+        1rem;
+}
+
+
+.currency-note {
+    margin-top:
+        30px;
+
+    padding:
+        18px 20px;
+
+    border:
+        1px solid var(--border);
+
+    color:
+        #777;
+
+    font-size:
+        0.72rem;
+
+    line-height:
+        1.7;
+
+    text-align:
+        center;
+}
+
+
+.currency-note span {
+    color:
+        var(--gold);
+
+    margin-right:
+        7px;
+}
+
+
+.currency-note strong {
+    color:
+        #bdbdbd;
+}
+
+
+
+/* =========================================================
+   HOW WE WORK
+========================================================= */
+
+.process {
+    max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding:
+        140px 5%;
+}
+
+
+.process-list {
+    border-top:
+        1px solid var(--border);
+}
+
+
+.process-step {
+    display: grid;
+
+    grid-template-columns:
+        90px 1fr 50px;
+
+    gap: 30px;
+
+    align-items: center;
+
+    padding:
+        38px 0;
+
+    border-bottom:
+        1px solid var(--border);
+
+    transition:
+        padding 0.35s ease,
+        background 0.35s ease;
+}
+
+
+.process-step:hover {
+    padding-left: 18px;
+
+    padding-right: 18px;
+
+    background:
+        rgba(215,179,106,0.025);
+}
+
+
+.process-number {
+    color:
+        var(--gold);
+
+    font-size:
+        0.65rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+}
+
+
+.process-content h3 {
+    margin-bottom:
+        8px;
+
+    color:
+        var(--white);
+
+    font-size:
+        1.25rem;
+
+    font-weight:
+        800;
+}
+
+
+.process-content p {
+    max-width:
+        650px;
+
+    color:
+        #777;
+
+    font-size:
+        0.82rem;
+
+    line-height:
+        1.75;
+}
+
+
+.process-arrow {
+    color:
+        var(--gold);
+
+    font-size:
+        1.15rem;
+
+    text-align:
+        right;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.process-step:hover .process-arrow {
+    transform:
+        translate(4px, -4px);
+}
+
+
+/* =========================================================
+   PROCESS — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .process {
+        padding:
+            100px 5%;
+    }
+
+
+    .process-step {
+        grid-template-columns:
+            45px 1fr 25px;
+
+        gap: 15px;
+
+        padding:
+            28px 0;
+    }
+
+
+    .process-step:hover {
+        padding-left:
+            10px;
+
+        padding-right:
+            10px;
+    }
+
+
+    .process-content h3 {
+        font-size:
+            1.05rem;
+    }
+
+
+    .process-content p {
+        font-size:
+            0.76rem;
+    }
+
+}
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq {
+    max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding:
+        140px 5%;
+}
+
+
+.faq-list {
+    max-width: 900px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.faq-item {
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.faq-question {
+    width: 100%;
+
+    padding:
+        28px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--white);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        700;
+}
+
+
+.faq-question b {
+    flex-shrink: 0;
+
+    color: var(--gold);
+
+    font-size:
+        1.4rem;
+
+    font-weight:
+        400;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.faq-answer {
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition:
+        max-height 0.4s ease;
+}
+
+
+.faq-answer p {
+    max-width: 700px;
+
+    padding:
+        0 40px 28px 0;
+
+    color: #777;
+
+    font-size:
+        0.82rem;
+
+    line-height:
+        1.8;
+}
+
+
+.faq-item.active
+.faq-answer {
+    max-height: 200px;
+}
+
+
+.faq-item.active
+.faq-question b {
+    transform:
+        rotate(45deg);
+}
+
+
+@media (max-width: 768px) {
+
+    .faq {
+        padding:
+            100px 5%;
+    }
+
+    .faq-question {
+        font-size:
+            0.85rem;
+
+        padding:
+            24px 0;
+    }
+
+    .faq-answer p {
+        font-size:
+            0.76rem;
+    }
+
+}
+/* =========================================================
+   KAYVIC X — PRICING CARD LAYOUT FIX
+========================================================= */
+
+.pricing-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+
+    align-items: stretch;
+}
+
+
+.price-card {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 560px;
+
+    padding: 38px 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #17140f 0%,
+            #0c0c0c 55%,
+            #080808 100%
+        );
+
+    border: 1px solid rgba(216, 179, 106, 0.22);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* Soft gold atmosphere */
+
+.price-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: -100px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(216, 179, 106, 0.12);
+
+    filter: blur(65px);
+
+    pointer-events: none;
+}
+
+
+/* Keep content above the glow */
+
+.price-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Package name */
+
+.price-label {
+    margin-bottom: 14px;
+
+    color: #d8b36a;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+/* Package title */
+
+.price-card h3 {
+    margin-bottom: 16px;
+
+    color: #ffffff;
+
+    font-size: 1.7rem;
+    line-height: 1.2;
+
+    font-weight: 800;
+}
+
+
+/* Description */
+
+.price-description {
+    color: #999999;
+
+    font-size: 0.88rem;
+    line-height: 1.75;
+
+    min-height: 100px;
+}
+
+
+/* Gold divider */
+
+.price-line {
+    width: 100%;
+    height: 1px;
+
+    margin: 24px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(216,179,106,0.55),
+            rgba(216,179,106,0.08),
+            transparent
+        );
+}
+
+
+/* Features */
+
+.price-card ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.price-card li {
+    color: #c4c4c4;
+
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+
+/* Button */
+
+.price-button {
+    margin-top: auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 15px 18px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(216,179,106,0.3);
+
+    background:
+        rgba(216,179,106,0.06);
+
+    color: #e6c985;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    transition:
+        0.3s ease;
+}
+
+
+.price-button:hover {
+    background: #d8b36a;
+
+    color: #080808;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(216,179,106,0.18);
+}
+
+
+/* =========================================================
+   BUSINESS — FEATURED PACKAGE
+========================================================= */
+
+.price-card.featured {
+    border-color:
+        rgba(216,179,106,0.65);
+
+    background:
+        linear-gradient(
+            145deg,
+            #211b11 0%,
+            #0d0d0c 60%,
+            #080808 100%
+        );
+
+    box-shadow:
+        0 25px 65px
+        rgba(216,179,106,0.10);
+}
+
+
+.price-card.featured::before {
+    width: 300px;
+    height: 300px;
+
+    background:
+        rgba(216,179,106,0.16);
+
+    filter: blur(75px);
+}
+
+
+/* MOST REQUESTED */
+
+.popular {
+    display: inline-flex;
+
+    align-self: flex-start;
+
+    margin-bottom: 24px;
+
+    padding: 7px 12px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(216,179,106,0.12);
+
+    border:
+        1px solid
+        rgba(216,179,106,0.35);
+
+    color:
+        #d8b36a;
+
+    font-size: 0.62rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.price-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(216,179,106,0.48);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,0.45);
+}
+
+
+/* =========================================================
+   CURRENCY NOTE
+========================================================= */
+
+.currency-note {
+    max-width: 800px;
+
+    margin: 35px auto 0;
+
+    text-align: center;
+
+    color: #777777;
+
+    font-size: 0.78rem;
+
+    line-height: 1.7;
+}
+
+
+.currency-note strong {
+    color: #d8b36a;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+
+        margin-top: 45px;
+    }
+
+
+    .price-card {
+        min-height: auto;
+
+        padding: 32px 26px;
+    }
+
+
+    .price-description {
+        min-height: auto;
+
+        margin-bottom: 10px;
+    }
+
+}
+/* =========================================================
+   KAYVIC X — SUBTLE PRICING CARD FLOAT
+========================================================= */
+
+@keyframes subtleCardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+}
+
+
+/* Gentle movement */
+
+.pricing-grid .price-card {
+    animation:
+        subtleCardFloat 6s ease-in-out infinite;
+}
+
+
+/* Each card moves at a slightly different rhythm */
+
+.pricing-grid .price-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.pricing-grid .price-card:nth-child(2) {
+    animation-delay: -2s;
+}
+
+.pricing-grid .price-card:nth-child(3) {
+    animation-delay: -4s;
+}
+
+
+/* Keep the hover effect */
+
+.pricing-grid .price-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-10px);
+}
+
+
+/* Reduce movement for people who prefer less animation */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pricing-grid .price-card {
+        animation: none;
+    }
+
+}
+/* =========================================================
+   KAYVIC X — CONTINUOUS PRICING FLOAT
+========================================================= */
+
+@keyframes kayvicPriceFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ALL THREE CARDS FLOAT */
+
+.pricing-grid .price-card {
+    animation-name: kayvicPriceFloat !important;
+    animation-duration: 5s !important;
+    animation-timing-function: ease-in-out !important;
+    animation-iteration-count: infinite !important;
+}
+
+
+/* Different timing so they don't move like one object */
+
+.pricing-grid .price-card:nth-child(1) {
+    animation-delay: 0s !important;
+}
+
+.pricing-grid .price-card:nth-child(2) {
+    animation-delay: -1.7s !important;
+}
+
+.pricing-grid .price-card:nth-child(3) {
+    animation-delay: -3.4s !important;
+}
+
+
+/* Hover slightly lifts the card */
+
+.pricing-grid .price-card:hover {
+    transform: translateY(-12px) !important;
+}/* ==================================================
+   KAYVIC X — REALISTIC SUBTLE LIGHTNING
+================================================== */
+
+.pricing .price-card {
+    position: relative;
+    overflow: visible;
+}
+
+.lightning-layer {
+    position: absolute;
+    inset: -14px;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+}
+
+.lightning-bolt {
+    position: absolute;
+    width: 75px;
+    height: 105px;
+
+    opacity: 0;
+
+    animation-name: naturalLightning;
+    animation-timing-function: steps(1, end);
+    animation-iteration-count: infinite;
+
+    filter:
+        drop-shadow(0 0 2px rgba(255,255,255,0.95))
+        drop-shadow(0 0 5px rgba(0,212,255,0.55));
+}
+
+.lightning-bolt path {
+    fill: none;
+    stroke: rgba(220,250,255,0.92);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* -----------------------------------------------
+   POSITIONS
+------------------------------------------------ */
+
+.lightning-bolt.one {
+    top: -14px;
+    left: 8%;
+    transform: rotate(-14deg);
+    animation-duration: 4.7s;
+    animation-delay: 0.7s;
+}
+
+.lightning-bolt.two {
+    top: 12%;
+    right: -18px;
+    transform: rotate(73deg);
+    animation-duration: 5.8s;
+    animation-delay: 2.4s;
+}
+
+.lightning-bolt.three {
+    bottom: -18px;
+    right: 15%;
+    transform: rotate(164deg);
+    animation-duration: 6.3s;
+    animation-delay: 1.8s;
+}
+
+.lightning-bolt.four {
+    bottom: 12%;
+    left: -18px;
+    transform: rotate(-72deg);
+    animation-duration: 5.2s;
+    animation-delay: 3.1s;
+}
+
+
+/* -----------------------------------------------
+   SHORT ELECTRICAL FLASH
+------------------------------------------------ */
+
+@keyframes naturalLightning {
+
+    0% {
+        opacity: 0;
+    }
+
+    72% {
+        opacity: 0;
+    }
+
+    73% {
+        opacity: 0.85;
+    }
+
+    74% {
+        opacity: 0.12;
+    }
+
+    75% {
+        opacity: 0.95;
+    }
+
+    76% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* -----------------------------------------------
+   DIFFERENT BEHAVIOUR FOR EACH CARD
+------------------------------------------------ */
+
+.pricing .price-card:nth-child(1) .lightning-bolt {
+    filter:
+        drop-shadow(0 0 2px rgba(255,255,255,0.9))
+        drop-shadow(0 0 4px rgba(0,212,255,0.45));
+}
+
+
+.pricing .price-card.featured .lightning-bolt {
+    filter:
+        drop-shadow(0 0 2px rgba(255,255,255,1))
+        drop-shadow(0 0 6px rgba(0,212,255,0.65));
+
+    animation-duration: 3.8s;
+}
+
+
+.pricing .price-card:nth-child(3) .lightning-bolt {
+    filter:
+        drop-shadow(0 0 2px rgba(255,255,255,0.95))
+        drop-shadow(0 0 5px rgba(0,212,255,0.55));
+}
+
+
+/* -----------------------------------------------
+   KEEP ALL CONTENT CLEAR
+------------------------------------------------ */
+
+.pricing .price-card > *:not(.lightning-layer) {
+    position: relative;
+    z-index: 3;
+}
+/* ==================================================
+   KAYVIC STYLE HOUSE — PROJECT IMAGE
+================================================== */
+
+.project:first-child .project-screen {
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.15)
+        ),
+        url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.project:first-child .project-screen::before {
+    content: none;
+}
+
+.project:first-child .project-screen-content {
+    position: relative;
+    z-index: 5;
+}
+/* ==================================================
+   KAYVIC X — SECOND PROJECT IMAGE
+================================================== */
+
+.project.next-project .project-screen {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* The KAYVIC X image */
+
+.project.next-project .kayvic-x-project-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+
+    z-index: 0;
+
+    transition: transform 0.6s ease;
+}
+
+
+/* Dark overlay */
+
+.project.next-project .project-screen::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.82),
+            rgba(0, 0, 0, 0.18)
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* Text stays above image */
+
+.project.next-project .project-screen-overlay {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* Button stays above everything */
+
+.project.next-project .project-link {
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* Small zoom when you touch/hover the project */
+
+.project.next-project:hover .kayvic-x-project-image {
+    transform: scale(1.04);
+}
+/* ==================================================
+   KAYVIC X — FORCE SECOND PROJECT IMAGE TO SHOW
+================================================== */
+
+.project.next-project .project-screen {
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+}
+
+.project.next-project .project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+
+    z-index: 0;
+}
+
+.project.next-project .project-screen::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.15)
+    );
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project.next-project .project-screen-content,
+.project.next-project .project-link {
+    position: relative;
+    z-index: 2;
+}
+/* ==================================================
+   KAYVIC X — HERO POLISH
+   Paste at the VERY BOTTOM of style.css
+================================================== */
+
+/* HERO */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft background light */
+.hero-light {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+
+    top: 50%;
+    right: -160px;
+
+    transform: translateY(-50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.025) 35%,
+        transparent 70%
+    );
+
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+/* Subtle grid */
+.hero-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 25%,
+        black 70%,
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+
+/* HERO CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* Small studio label */
+.hero-label {
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    opacity: 0.65;
+
+    margin-bottom: 22px;
+}
+
+
+/* Main heading */
+.hero h1 {
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+
+/* Description */
+.hero-description {
+    max-width: 620px;
+    line-height: 1.75;
+    opacity: 0.72;
+}
+
+
+/* Buttons */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+
+/* Hero metadata */
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    margin-top: 38px;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    opacity: 0.45;
+}
+
+
+/* ==================================================
+   HERO VISUAL
+================================================== */
+
+.hero-visual {
+    position: relative;
+    z-index: 2;
+
+    perspective: 1000px;
+}
+
+
+/* Studio showcase card */
+.visual-card {
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 28px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.018)
+        );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    transition:
+        transform 0.6s ease,
+        border-color 0.6s ease;
+}
+
+
+/* Card hover */
+.visual-card:hover {
+    transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+
+    border-color:
+        rgba(255,255,255,0.22);
+}
+
+
+/* Top row */
+.visual-top,
+.visual-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    opacity: 0.55;
+}
+
+
+/* Center */
+.visual-center {
+    padding: 50px 0;
+}
+
+.visual-center small {
+    display: block;
+
+    margin-bottom: 18px;
+
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    opacity: 0.5;
+}
+
+.visual-center h2 {
+    margin: 0;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+}
+
+.visual-center h2 span {
+    display: block;
+    opacity: 0.35;
+}
+
+
+/* Bottom details */
+.visual-bottom {
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* ==================================================
+   MOBILE HERO
+================================================== */
+
+@media (max-width: 900px) {
+
+    .hero-light {
+        width: 380px;
+        height: 380px;
+
+        right: -180px;
+    }
+
+    .hero-meta {
+        gap: 14px;
+    }
+
+    .visual-card {
+        min-height: 360px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .button {
+        width: 100%;
+    }
+
+    .hero-meta {
+        gap: 10px 18px;
+    }
+
+    .visual-card {
+        min-height: 320px;
+        padding: 22px;
+    }
+
+    .visual-center {
+        padding: 35px 0;
+    }
+
+    .visual-center h2 {
+        font-size: 3.2rem;
+    }
+
+}
+/* ==================================================
+   KAYVIC X — HERO POLISH
+================================================== */
+
+/* HERO */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft background light */
+.hero-light {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+
+    top: 50%;
+    right: -160px;
+
+    transform: translateY(-50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.025) 35%,
+        transparent 70%
+    );
+
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+/* Subtle grid */
+.hero-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 25%,
+        black 70%,
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   HERO CONTENT
+================================================== */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* Small studio label */
+.hero-label {
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    opacity: 0.65;
+
+    margin-bottom: 22px;
+}
+
+
+/* Main heading */
+.hero h1 {
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+
+/* Description */
+.hero-description {
+    max-width: 620px;
+    line-height: 1.75;
+    opacity: 0.72;
+}
+
+
+/* Buttons */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+
+/* Hero metadata */
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    margin-top: 38px;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    opacity: 0.45;
+}
+
+
+/* ==================================================
+   HERO VISUAL
+================================================== */
+
+.hero-visual {
+    position: relative;
+    z-index: 2;
+
+    perspective: 1000px;
+}
+
+
+/* Studio showcase card */
+.visual-card {
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 28px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.018)
+        );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    transition:
+        transform 0.6s ease,
+        border-color 0.6s ease;
+}
+
+
+/* Card hover */
+.visual-card:hover {
+    transform:
+        translateY(-8px)
+        rotateX(2deg)
+        rotateY(-2deg);
+
+    border-color:
+        rgba(255,255,255,0.22);
+}
+
+
+/* Top row */
+.visual-top,
+.visual-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    opacity: 0.55;
+}
+
+
+/* Center */
+.visual-center {
+    padding: 50px 0;
+}
+
+.visual-center small {
+    display: block;
+
+    margin-bottom: 18px;
+
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    opacity: 0.5;
+}
+
+.visual-center h2 {
+    margin: 0;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+}
+
+.visual-center h2 span {
+    display: block;
+    opacity: 0.35;
+}
+
+
+/* Bottom details */
+.visual-bottom {
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.1);
+}
+
+
+/* ==================================================
+   MOBILE HERO
+================================================== */
+
+@media (max-width: 900px) {
+
+    .hero-light {
+        width: 380px;
+        height: 380px;
+
+        right: -180px;
+    }
+
+    .hero-meta {
+        gap: 14px;
+    }
+
+    .visual-card {
+        min-height: 360px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .button {
+        width: 100%;
+    }
+
+    .hero-meta {
+        gap: 10px 18px;
+    }
+
+    .visual-card {
+        min-height: 320px;
+        padding: 22px;
+    }
+
+    .visual-center {
+        padding: 35px 0;
+    }
+
+    .visual-center h2 {
+        font-size: 3.2rem;
+    }
+
+}
